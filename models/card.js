@@ -1,4 +1,8 @@
 const mongoose = require('mongoose');
+const regexp = require('./valregexp');
+
+console.log(toString(regexp.toString));
+
 
 // регулярное выражение для валидации ссылки на картинку для карточки.
 // Начинается на http:// или https://  --- затем адрес --- заканчивается на что-то типа /pic123.jpg (обязательно слеш, затем буквы и/или цифры, точка, формат из 3+ букв)
