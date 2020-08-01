@@ -46,10 +46,12 @@ module.exports.login = (req, res) => {
       // в пейлоуд токена записываем только _id
       const token = jwt.sign({ _id: user._id }, 'very-strong-secret-key', { expiresIn: '7d' });
       // отправляем токен браузеру. Браузер сохранит токен в куках
+      console.log(`User ${user._id} is logging in`);
       res
         .cookie('jwt', token, {
           maxAge: 3600000 * 24 * 7,
           httpOnly: true, // по рекомендации из задания, чтобы куки было не прочесть через JS
+          sameSite: true, // отдаёт куки только родному домену, если браузер поддерживает фичу
         })
         .end();
     })
