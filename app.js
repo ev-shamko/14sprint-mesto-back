@@ -44,7 +44,7 @@ const cardsRouter = require('./routes/cards');
 const notokenAuth = require('./routes/userauth');
 
 // app.use('/register', notokenAuth);
-app.use('/login', notokenAuth);
+app.use('/', notokenAuth);
 
 // добавляем авторизационный миддлвэр
 // всем роутам ниже этой строчки будет добавляться токен для авторизации в req.user._id

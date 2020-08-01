@@ -2,15 +2,15 @@
 const notokenAuth = require('express').Router();
 const { createUser, login } = require('../controllers/users');
 
-notokenAuth.post('/', login);
-notokenAuth.post('/register', createUser);
+notokenAuth.post('/signin', login);
+notokenAuth.post('/signup', createUser);
 
 module.exports = notokenAuth;
 
 /*
 Пример корректного body для регистрации:
 
-POST http://localhost:3000/login/register
+POST http://localhost:3000/signup
 {
     "name": "User WithPassword",
     "about": "Some userinfo",
@@ -19,4 +19,12 @@ POST http://localhost:3000/login/register
     "password": "12345"
 }
 
+Пример запроса для залогинивания:
+
+POST http://localhost:3000/signin
+
+{
+    "email": "testuser@yandex.ru",
+    "password": "12345"
+}
 */
