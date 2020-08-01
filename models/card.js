@@ -23,11 +23,11 @@ const cardSchema = new mongoose.Schema({
     },
   },
   owner: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId, // сюда запишется ссылка на создателя карточки
     required: true,
-    ref: 'user',
+    ref: 'user', // это обязательно
   },
-  likes: {
+  likes: { // пока функционал лайков не реализован
     type: [mongoose.Schema.Types.ObjectId],
     ref: 'user',
     default: [],
